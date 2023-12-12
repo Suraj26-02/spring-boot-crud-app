@@ -1,0 +1,30 @@
+package com.demo.crud.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.crud.entity.Product;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@RestController
+public class ProductController {
+
+	@RequestMapping(value="/add",method = RequestMethod.POST)
+    private ResponseEntity<HttpStatus> appConfigure(HttpServletRequest request,@RequestBody Product product) {
+
+        log.info("==== post Call arrived for configure client app mapping ====");
+        ClientUserDto clientUserDto = (ClientUserDto) request.getAttribute(SessionUtil.User);
+        ClientDto client = null;
+        try {
+            client = appConfigurationService.configureAppMapping(clientUserDto.getClientDto(),appData);
+        } catch (Exception e) {
+            log.debug("error occured while fetching app list...{}", e.getMessage());
+        }
+        return client;
+    }
+    
+}

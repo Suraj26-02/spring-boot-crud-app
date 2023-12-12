@@ -1,0 +1,11 @@
+package com.demo.crud.service;
+
+import com.demo.crud.entity.Product;
+
+public interface ProductService {
+
+	public void addProduct(Product product);
+	public void updateProduct(Product product);
+	public Product getProductById(Long id);
+	public void deleteProductById(Long id);
+}

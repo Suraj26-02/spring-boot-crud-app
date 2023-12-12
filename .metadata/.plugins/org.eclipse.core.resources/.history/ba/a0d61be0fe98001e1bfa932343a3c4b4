@@ -1,0 +1,13 @@
+server.port=8080
+
+spring.datasource.platform=postgres
+spring.datasource.url=jdbc:postgresql://localhost:5432/crud
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+
+server.servlet.session.cookie.http-only=true
+server.servlet.session.tracking-modes=cookie
+
+
+
